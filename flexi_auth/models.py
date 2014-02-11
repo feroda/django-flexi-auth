@@ -181,8 +181,8 @@ class ParamRole(models.Model):
     objects = RoleManager()
 
     def __unicode__(self):
-        param_str_list = ["%s" % s for s in self.params]
-        return _(u"%(role)s for %(params)s") % { 'role' : ROLES_DICT[self.role.name], 'params':  ", ".join(param_str_list)}
+        param_str_list = [unicode(s) for s in self.params]
+        return _(u"%(role)s for %(params)s") % { 'role' : ROLES_DICT[self.role.name], 'params':  u", ".join(param_str_list)}
     
     @property
     def params(self):
